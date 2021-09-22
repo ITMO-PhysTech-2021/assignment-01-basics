@@ -1,10 +1,9 @@
 name: Homework testing
 
 on:
-  push:
-    branches: [ main, hw ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   test-pratice:
