@@ -29,7 +29,7 @@ pip install -U pytest
 ```shell
 >>> help(sum)
 sum(iterable, /, start=0)
-    Return the sum of a 'start' value (default: 0) plus an iterable of numbers
+    Return the sum of a 'start' value (default: 0) plus an iterable of numeric
     
     When the iterable is empty, return the start value.
     This function is intended specifically for use with numeric values and may
@@ -68,7 +68,7 @@ git checkout practice
 ```
 
 3. Выполните задачи практики. Каждое задание находится в отдельной папке в [`practice`](practice). Условие каждого
-   задания находится в его папке в файле `legend.md`
+   задания находится в его папке в файле `_legend.md`
 4. После выполнения очередного задания вы можете проверить правильность вашего решения, запустив `pytest` (`TASKNAME`
    надо заменить на имя задания)
 
@@ -81,7 +81,7 @@ pytest practice/TASKNAME
 
 ```shell
 git add practice/TASKNAME
-git commit -m "Task TASKNAME done"
+git commit -m "Task [pr] TASKNAME done"
 
 git push origin practice
 ```
@@ -121,7 +121,7 @@ git checkout -b hw
 ```
 
 2. Выполните задачи домашнего задания. Каждое задание находится в отдельной папке в [`homework`](homework). Условие
-   каждого задания находится в его папке в файле `legend.md`
+   каждого задания находится в его папке в файле `_legend.md`
 3. После выполнения очередного задания вы можете проверить правильность вашего решения, запустив `pytest` (`TASKNAME`
    надо заменить на имя задания)
 
@@ -134,7 +134,7 @@ pytest homework/TASKNAME
 
 ```shell
 git add homework/TASKNAME
-git commit -m "Task TASKNAME done"
+git commit -m "Task [hw] TASKNAME done"
 
 git push origin hw
 ```
