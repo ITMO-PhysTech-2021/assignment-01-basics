@@ -1,7 +1,7 @@
 import pytest
 import structures
 
-kts_test_data = [
+kth_test_data = [
     (([4, 1, 17], 2), 4),
     (([4, 17, 1], 3), 17),
     (([-100], 1), -100),
@@ -32,7 +32,7 @@ head_tail_test_data = [
 
 
 @pytest.mark.parametrize('data', head_tail_test_data)
-def test_head_tails(data):
+def test_head_tail(data):
     # noinspection PyArgumentList
     assert structures.head_tail(*data[0]) == data[1]
 
@@ -41,7 +41,7 @@ filter_sort_test_data = [
     ((['ava', 'xab', 'aboba'], 'x'), ['aboba', 'ava']),
     (([], 'x'), []),
     ((['', 'xx', 'Abab', 'xa'], 'A'), ['', 'xa', 'xx']),
-    ((['c', 'b', 'a', 'e', 'd'], 'f'), ['a', 'b', 'c', 'd']),
+    ((['c', 'b', 'a', 'e', 'd'], 'f'), ['a', 'b', 'c', 'd', 'e']),
     ((['x', 'alex', 'axe', 'xxx'], 'x'), []),
     ((['x y z', 'zz', 'xx', ''], 'z'), ['', 'xx']),
     ((['597', ' ', 'x y', '5 9 7', '87'], ' '), ['597', '87']),
