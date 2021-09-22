@@ -1,10 +1,9 @@
 name: Practice testing
 
 on:
-  push:
-    branches: [ main, practice ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   test-helloworld2:
