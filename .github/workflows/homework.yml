@@ -1,0 +1,33 @@
+name: Homework testing
+
+on:
+  push:
+    branches: [ main, hw ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-pratice:
+    name: testing-practice-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setting up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Installing dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install pytest
+      - run: |
+          pytest practice
+
+  test-homework:
+    name: testing-none
+    runs-on: ubuntu-latest
+    needs: test-practice
+    steps:
+      - name: Echo
+      - run: echo "Not yet ready"

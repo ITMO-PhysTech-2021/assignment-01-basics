@@ -5,11 +5,10 @@ on:
     branches: [ main, practice ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
 
 jobs:
   test-helloworld2:
-    name: Testing 'helloworld2'
+    name: testing-helloworld2
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,7 +25,7 @@ jobs:
           pytest practice/helloworld2
 
   test-numeric:
-    name: Testing 'numeric'
+    name: testing-numeric
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,7 +42,7 @@ jobs:
           pytest practice/numeric
 
   test-structures:
-    name: Testing 'structures'
+    name: testing-structures
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
