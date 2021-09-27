@@ -15,7 +15,7 @@ def test_no_new_functions():
     oneline_hard.index_of_median
 ])
 def test_one_line(f):
-    source = list(map(str.strip, getsource(f)))
+    source = [x.strip() for x in getsource(f).split('\n') if len(x.strip()) > 0]
     code = [line for line in source if not line.startswith(f'def {f.__name__}') and not line.startswith('"""')]
     assert len(code) == 1
 
@@ -59,7 +59,7 @@ index_of_median_test_data = [
     ([3, 1, 2], 2),
     (list(range(1001)), 500),
     ([100, 10, 9, -4, 17, 23, -133], 1),
-    ([1, 2, 3, 4, -1, -2, -3, -4, -5], 8),
+    ([1, 2, 3, 4, -1, -2, -3, -4, -5], 4),
     ([10 ** 21, 10 ** 20, -1, 0, -2], 3)
 ]
 

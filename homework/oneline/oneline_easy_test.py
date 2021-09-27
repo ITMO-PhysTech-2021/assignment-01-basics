@@ -15,7 +15,7 @@ def test_no_new_functions():
     oneline_easy.shuffle_lists
 ])
 def test_one_line(f):
-    source = list(map(str.strip, getsource(f)))
+    source = [x.strip() for x in getsource(f).split('\n') if len(x.strip()) > 0]
     code = [line for line in source if not line.startswith(f'def {f.__name__}') and not line.startswith('"""')]
     assert len(code) == 1
 
@@ -60,7 +60,7 @@ print_dividing_test_data = [
     ([1, 5, 2], '2 4'),
     ([-99, 98, 33], '-99 -66 -33 0 33 66'),
     ([100, 197, 99], ''),
-    ([-10 ** 9, -4 * 10 ** 8 - 1, 10 ** 8], '-1000000000 -900000000 -800000000 -700000000 -600000000 -500000000')
+    ([-1000, -401, 100], '-1000 -900 -800 -700 -600 -500')
 ]
 
 
@@ -70,7 +70,10 @@ def test_print_dividing(data):
     # noinspection PyArgumentList
     oneline_easy.print_dividing(*data[0], _print)
     try:
-        assert get() == data[1]
+        s = get()
+        if s.endswith('\n'):
+            s = s[:-1]
+        assert s == data[1]
     except ValueError as e:
         pytest.fail(e)
 
@@ -78,13 +81,13 @@ def test_print_dividing(data):
 shuffle_lists_test_data = [
     (([], []), []),
     (([1], [2]), [1, 2]),
-    (list(range(1, 10, 2)), list(range(2, 11, 2)), list(range(1, 11))),
+    ((list(range(1, 10, 2)), list(range(2, 11, 2))), list(range(1, 11))),
     (([-1, 1, -1], [1, -1, 1]), [-1, 1, 1, -1, -1, 1]),
     (([[['']], []], [(1,), (2, 3)]), [[['']], (1,), [], (2, 3)]),
     ((['', 0], [0, 1]), ['', 0, 0, 1])
 ]
 
 
-@pytest.mark.parametrize('data', min_prime_test_data)
+@pytest.mark.parametrize('data', shuffle_lists_test_data)
 def test_shuffle_lists(data):
     assert oneline_easy.shuffle_lists(*data[0]) == data[1]
