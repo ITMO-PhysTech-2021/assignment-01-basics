@@ -1,8 +1,8 @@
 name: Practice testing
 
 on:
-  pull_request:
-    branches: [ main ]
+  push:
+    branches: [ practice ]
   workflow_dispatch:
 
 jobs:

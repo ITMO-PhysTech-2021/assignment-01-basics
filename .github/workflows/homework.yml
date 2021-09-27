@@ -1,8 +1,8 @@
 name: Homework testing
 
 on:
-  pull_request:
-    branches: [ main ]
+  push:
+    branches: [ hw ]
   workflow_dispatch:
 
 jobs:
