@@ -68,7 +68,7 @@ build_dict_test_data = [
 
 
 @pytest.mark.parametrize('data', build_dict_test_data)
-def test_distance(data):
+def test_build_dict(data):
     # noinspection PyArgumentList
     assert structures.build_dict(*data[0]) == data[1]
 
