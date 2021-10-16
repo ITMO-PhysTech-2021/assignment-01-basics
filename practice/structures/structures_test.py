@@ -14,7 +14,7 @@ kth_test_data = [
 
 
 @pytest.mark.parametrize('data', kth_test_data)
-def test_kts(data):
+def test_kth(data):
     # noinspection PyArgumentList
     assert structures.kth(*data[0]) == data[1]
 
